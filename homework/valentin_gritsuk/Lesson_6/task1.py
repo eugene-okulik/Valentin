@@ -4,8 +4,9 @@ words = text.split()
 fin_text = ''
 for word in words:
     if word.endswith(','):
-        fin_text += word.replace(',','ing, ')
+        fin_text += word.replace(',' ,'ing, ')
     elif word.endswith('.'):
-        fin_text += word.replace('.','ing. ')
-    else: fin_text += word + 'ing '
+        fin_text += word.replace('.' ,'ing. ')
+    else:
+        fin_text += word + 'ing '
 print(fin_text.rstrip())
