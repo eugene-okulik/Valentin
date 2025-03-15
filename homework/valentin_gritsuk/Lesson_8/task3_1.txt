@@ -1,0 +1,2 @@
+Task done by installing the venv (python -m venv venv) and adding new interpreter( task3_2.png).
+File task3_3.png as a result.
