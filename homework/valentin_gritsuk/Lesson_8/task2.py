@@ -24,4 +24,4 @@ def print_current_fibo_numb(*args):
             count += 1
 
 
-print_current_fibo_numb( 5, 200, 1000, 100000)
+print_current_fibo_numb(5, 200, 1000, 100000)
