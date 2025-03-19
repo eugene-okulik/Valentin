@@ -26,7 +26,7 @@ class SchoolTextbook(Book):
     def about_me_print(self):
         text = (super().about_me().replace(', зарезервирована','').
                 replace(f'материал: {self.material_of_page}', ''))
-        text  += f'предмет: {self.subject}, класс: {self.class_grade}{', зарезервирована' if self.is_reserved else ''}'
+        text  += f'предмет: {self.subject}, класс: {self.class_grade}{", зарезервирована" if self.is_reserved else ""}'
         print(text)
 
 
@@ -52,6 +52,3 @@ math_book.is_reserved = True
 math_book.about_me_print()
 english_book.about_me_print()
 russ_book.about_me_print()
-
-
-
