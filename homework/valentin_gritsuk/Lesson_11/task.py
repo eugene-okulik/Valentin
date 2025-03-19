@@ -11,7 +11,7 @@ class Book:
 
     def about_me(self):
         text = (f'Название: {self.title}, Автор: {self.author}, страниц: {self.page_counts}, '
-                f'материал: {self.material_of_page}{', зарезервирована' if self.is_reserved else ''}')
+                f'материал: {self.material_of_page}{", зарезервирована" if self.is_reserved else ""}')
         return text
 
 
