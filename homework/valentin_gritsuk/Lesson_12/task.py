@@ -56,19 +56,19 @@ class Bouquet:
 
     def sort_by_freshness(self):
         print('\nОтсортировано по свежести')
-        self.flowers.sort(key = lambda obj: obj.freshness)
+        self.flowers.sort(key=lambda obj: obj.freshness)
 
     def sort_by_cost(self):
         print('\nОтсортировано по стоимости')
-        self.flowers.sort(key = lambda obj: obj.cost)
+        self.flowers.sort(key=lambda obj: obj.cost)
 
     def sort_by_stem_len(self):
         print('\nОтсортировано по длине стебля')
-        self.flowers.sort(key = lambda obj: obj.stem_length)
+        self.flowers.sort(key=lambda obj: obj.stem_length)
 
     def sort_by_color(self):
         print('\nОтсортировано по цвету')
-        self.flowers.sort(key = lambda obj: obj.color)
+        self.flowers.sort(key=lambda obj: obj.color)
 
     def __str__(self):
         bouquet = ('Ваш букет\n')
@@ -84,7 +84,7 @@ red_rose = Rose(
 yellow_orchid = Orchid(
     'Красная орхидея', 80, 'красный', 56, 180, 4, False
 )
-lupin =  Lupin(
+lupin = Lupin(
     'Желтый тюльпан', 85, 'желтый', 64, 195, 3, False
 )
 bouquet = Bouquet()
