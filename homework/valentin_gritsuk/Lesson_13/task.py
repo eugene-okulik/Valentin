@@ -14,7 +14,7 @@ data_path = os.path.join(base_path, 'eugene_okulik', 'hw_13', 'data.txt')
 print(data_path)
 
 for data_line in read_file(data_path):
-    time = (data_line[3 : (data_line.index('распечатать') - 3)])
+    time = (data_line[3: (data_line.index('распечатать') - 3)])
     time = datetime.datetime.strptime(time, "%Y-%m-%d %H:%M:%S.%f")
     if data_line[0] == '1':
         print(time + datetime.timedelta(days=7))
