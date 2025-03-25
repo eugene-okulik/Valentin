@@ -1,7 +1,7 @@
 import os
 import csv
 import mysql.connector as mysql
-import  dotenv
+import dotenv
 
 
 dotenv.load_dotenv()
@@ -27,7 +27,7 @@ db = mysql.connect(
     database=os.getenv('DB_NAME')
 )
 cursor = db.cursor(dictionary=True)
-select_query = f'''
+select_query = '''
 SELECT s.name, s.second_name, g.title AS group_title, b.title AS book_title,
         su.title AS subject_title, l.title AS lesson_title, m.value AS mark_value
 FROM students s
