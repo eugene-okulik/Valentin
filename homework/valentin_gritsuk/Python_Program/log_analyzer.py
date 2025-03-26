@@ -18,12 +18,12 @@ def print_context(lines, line, row_counter):
             end = min(len(words), index + 6)
             real_end = index + 5
     context = ' '.join(words[start:end])
-    if lines[row_counter - 1]: # Если в найденной строке до искомого текста меньше 5 слов, берём слова из пред. строки
+    if lines[row_counter - 1]:  #  Если в найденной строке до искомого текста меньше 5 слов, берём слова из пред. строки
         if real_start < 0:
             words_add_st = lines[row_counter - 1].split()
             context_add_st = ' '.join(words_add_st[len(words_add_st) + real_start - 1:])
             context = context_add_st + context
-    if  lines[row_counter + 1]: # Если в найденной строке после искомого текста больше 5 слов, берём из след. строки
+    if lines[row_counter + 1]:  #  Если в найденной строке после искомого текста больше 5 слов, берём из след. строки
         if real_end > len(words):
             words_add_end = lines[row_counter + 1].split()
             context_add_end = ' '.join(words_add_end[:real_end - len(words)])
@@ -40,5 +40,5 @@ for file in contents:
         for line in lines:
             if args.text in line:
                 print(f'Указанный текст находится в файле "{file}" в строке №{row_counter}')
-                print_context(lines, line,  row_counter)
+                print_context(lines, line, row_counter)
             row_counter += 1
