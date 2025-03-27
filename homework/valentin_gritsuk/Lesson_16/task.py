@@ -46,5 +46,6 @@ cursor.execute(select_query)
 db_data = cursor.fetchall()
 db.close()
 
-common_dicts = [dicti for dicti in files_data if dicti in db_data]
-print(common_dicts)
+common_dicts = [dicti for dicti in files_data if dicti not in db_data]
+print('В базе данных нет следующих данных:')
+print(*common_dicts, sep = '\n')
