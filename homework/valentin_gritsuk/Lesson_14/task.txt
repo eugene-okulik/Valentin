@@ -1,0 +1,50 @@
+INSERT INTO students (name, second_name, group_id) VALUES ('Valentin', 'Gritsuk', NULL)
+INSERT INTO books (title, taken_by_student_id) VALUES ('Minecraft', 20002)
+INSERT INTO books (title, taken_by_student_id) VALUES ('Adventures of the evening', 20002)
+INSERT INTO books (title, taken_by_student_id) VALUES ('Dark tower', 20002)
+INSERT INTO `groups` (title, start_date, end_date) VALUES ('Valentin`s group', 'march 2025', 'april 2025')
+UPDATE students SET group_id = 4867 WHERE id = 20002
+INSERT INTO subjets (title) VALUES ('AQA for dreamers')
+INSERT INTO subjets (title) VALUES ('AQA for dreamers')
+INSERT INTO lessons (title, subject_id) VALUES ('1. Dont be afraid', 10003)
+INSERT INTO lessons (title, subject_id) VALUES ('2. Introducing in QA', 10003)
+INSERT INTO subjets (title) VALUES ('How to break the brain')
+INSERT INTO lessons (title, subject_id) VALUES ('1. Thinking of another way', 10004)
+INSERT INTO lessons (title, subject_id) VALUES ('2. You is unique', 10004)
+INSERT INTO subjets (title) VALUES ('More than `Hello world`')
+INSERT INTO lessons (title, subject_id) VALUES ('1. How to print `Hello Universe', 10005)
+INSERT INTO lessons (title, subject_id) VALUES ('2. How to hack the PENTAGON', 10005)
+INSERT INTO marks (value, lesson_id, student_id) VALUES ('10/10', 9343, 20002)
+INSERT INTO marks (value, lesson_id, student_id) VALUES ('10/10', 9344, 20002)
+INSERT INTO marks (value, lesson_id, student_id) VALUES ('10/10', 9345, 20002)
+INSERT INTO marks (value, lesson_id, student_id) VALUES ('10/10', 9346, 20002)
+INSERT INTO marks (value, lesson_id, student_id) VALUES ('10/10', 9347, 20002)
+INSERT INTO marks (value, lesson_id, student_id) VALUES ('10/10', 9348, 20002)
+
+SELECT s.name, s.second_name, l.title, m.value
+FROM students s
+JOIN marks m
+ON s.id = m.student_id
+JOIN lessons l
+ON l.id = m.lesson_id
+WHERE s.id = 20002
+
+SELECT s.name, s.second_name, b.title
+FROM students s
+JOIN books b
+ON s.id = b.taken_by_student_id
+WHERE s.id = 20002
+
+SELECT g.title, s.name, s.second_name, b.title, su.title, l.title, m.value
+FROM students s
+JOIN marks m
+ON s.id = m.student_id
+JOIN lessons l
+ON l.id = m.lesson_id
+JOIN `groups` g
+ON g.id = s.group_id
+JOIN books b
+ON s.id = b.taken_by_student_id
+JOIN subjets su
+ON su.id = l.subject_id
+WHERE s.id = 20002
