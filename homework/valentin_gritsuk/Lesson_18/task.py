@@ -4,7 +4,7 @@ import requests
 def new_data():
     body = {
         "name": "testtest",
-        "data" : {"color": "white", "size": "big"}
+        "data": {"color": "white", "size": "big"}
     }
     response = requests.post(
         'http://167.172.172.115:52353/object',
@@ -12,12 +12,15 @@ def new_data():
     )
     return response.json()['id']
 
+
 def clear(post_id):
     requests.delete(f'http://167.172.172.115:52353/object/{post_id}')
+
 
 def all_data():
     response = requests.get('http://167.172.172.115:52353/object')
     assert response.status_code == 200, 'Status code is incorrect'
+
 
 def one_data():
     post_id = new_data()
@@ -25,10 +28,11 @@ def one_data():
     assert response['id'] == post_id, 'Id is incorrect'
     clear(post_id)
 
+
 def post_data():
     body = {
         "name": "testingtest",
-        "data" : {"color": "white", "size": "big"}
+        "data": {"color": "white", "size": "big"}
     }
     response = requests.post(
         'http://167.172.172.115:52353/object',
@@ -38,11 +42,12 @@ def post_data():
     assert response.json()['name'] == "testingtest", 'Name is incorrect'
     assert response.json()['data'] == {"color": "white", "size": "big"}, 'Data is incorrect'
 
+
 def put_data():
     post_id = new_data()
     body = {
         "name": "fadas",
-        "data" : {"xcz": "weq", "fsdf": "aweq"}
+        "data": {"xcz": "weq", "fsdf": "aweq"}
     }
     response = requests.put(
         f'http://167.172.172.115:52353/object/{post_id}',
