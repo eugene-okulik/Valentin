@@ -27,7 +27,7 @@ def data_id():
         json=body,
     )
     yield response.json()['id']
-    requests.delete(f'http://167.172.172.115:52353/object/{response.json()['id']}')
+    requests.delete(f"http://167.172.172.115:52353/object/{response.json()['id']}")
 
 
 @pytest.mark.critical
@@ -64,7 +64,7 @@ def test_post_data(test_data):
     assert response.status_code == 200, 'Status code is incorrect'
     assert response.json()['name'] == test_data['name'], 'Name is incorrect'
     assert response.json()['data'] == test_data['data'], 'Data is incorrect'
-    requests.delete(f'http://167.172.172.115:52353/object/{response.json()['id']}')
+    requests.delete(f"http://167.172.172.115:52353/object/{response.json()['id']}")
 
 
 def test_put_data(data_id):
