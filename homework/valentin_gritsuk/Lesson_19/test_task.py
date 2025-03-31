@@ -41,6 +41,7 @@ def test_one_data(data_id):
     response = requests.get(f'http://167.172.172.115:52353/object/{data_id}').json()
     assert response['id'] == data_id, 'Id is incorrect'
 
+
 @pytest.mark.parametrize("test_data", [
     {
         "name": "first",
