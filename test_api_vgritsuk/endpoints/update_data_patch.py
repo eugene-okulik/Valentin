@@ -7,7 +7,6 @@ from endpoints.endpoint import Endpoint
 
 class UpdateDataPatch(Endpoint):
 
-
     @allure.step('Update name and/or data PATCH')
     def update_data_patch(self, body):
         self.url = self.url + '/' + str(self.json['id'])
