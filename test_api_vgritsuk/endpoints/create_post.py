@@ -1,10 +1,15 @@
 import allure
 from endpoints.endpoint import Endpoint
+import requests
 
 
 class CreatePost(Endpoint):
 
-    @allure.step('Check that 400 error received')
-    def check_bad_request(self):
-        assert self.response.status_code == 400
-    # Если получилось, что в Create Post нечего вписывать, нужен ли этот класс для этого эндпоинта ?
+    @allure.step('Create new data')
+    def create_new_data(self, body):
+        self.response = requests.post(
+            self.url,
+            json=body
+        )
+        self.json = self.response.json()
+        return self.response

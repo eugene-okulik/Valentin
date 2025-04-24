@@ -8,15 +8,6 @@ class Endpoint:
     started_json = None
     json = None
 
-    @allure.step('Create new data')
-    def create_new_data(self, body):
-        self.response = requests.post(
-            self.url,
-            json=body
-        )
-        self.json = self.response.json()
-        return self.response
-
     @allure.step('Delete new data after test')
     def delete_new_data(self):
         requests.delete(f"http://167.172.172.115:52353/object/{self.json['id']}")
@@ -32,3 +23,7 @@ class Endpoint:
     @allure.step('Check that data in json is the same as sent')
     def check_response_data_is_correct(self, data):
         assert self.json['data'] == data
+
+    @allure.step('Check that 400 error received')
+    def check_bad_request(self):
+        assert self.response.status_code == 400
