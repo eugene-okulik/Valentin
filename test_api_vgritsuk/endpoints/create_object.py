@@ -3,10 +3,10 @@ from endpoints.endpoint import Endpoint
 import requests
 
 
-class CreatePost(Endpoint):
+class CreateObject(Endpoint):
 
-    @allure.step('Create new data')
-    def create_new_data(self, body):
+    @allure.step('Create new object')
+    def create_new_object(self, body):
         self.response = requests.post(
             self.url,
             json=body

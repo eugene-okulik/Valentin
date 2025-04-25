@@ -8,10 +8,6 @@ class Endpoint:
     started_json = None
     json = None
 
-    @allure.step('Delete new data after test')
-    def delete_new_data(self):
-        requests.delete(f"http://167.172.172.115:52353/object/{self.json['id']}")
-
     @allure.step('Check that response is 200')
     def check_that_status_is_200(self):
         assert self.response.status_code == 200
